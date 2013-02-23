@@ -1,0 +1,10 @@
+<%= form_for(@post) do |f| %>
+    <div class="fields">
+      <%= f.label :post %>
+      <br/>
+      <%= f.text_field :post %>
+    </div>
+    <div class="actions" id="refresh_posts">
+      <%= f.submit 'Post' %>
+    </div>
+<% end %>

@@ -1,0 +1,24 @@
+<% if @posts_streams.empty? %>
+    <h3> no posts yet </h3>
+<% else %>
+    <% @posts_streams.each do |post| %>
+        <div class="post_body">
+          <div class="vote_box">
+            <a href="" id="<%= post.id %>" name="like" class="votes">
+              <div class='up'></div> <%= post.like %> 좋아요
+            </a>
+            <a href="" id="<%= post.id %>" name="dislike" class="votes">
+              <div class='down'></div> <%= post.dislike %> 싫어요
+            </a>
+          </div>
+          <div class="post_img"><img src="assets/default_avatar.png" style='width:50px;height:50px'/></div>
+          <div class="post_text">
+            <blockquote>
+              <p><%= post.body %></p>
+              <small><%= post.writer %></small>
+            </blockquote>
+            <div class="post_time">created at <%= post.created_at %></div>
+          </div>
+        </div>
+    <% end %>
+<% end %>

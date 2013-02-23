@@ -1,0 +1,35 @@
+<% if current_user %>
+    <% post = current_user.posts.new %>
+    <%= render partial: 'posts/new_post.html.erb' %>
+    <div id="posts_feed">
+      <%= render partial: 'posts.html.erb', locals: {posts_streams: @posts_streams} %>
+    </div><br/>
+<% end %>
+<script>
+  $(document).ready(function() {
+      var timely_refreshPostFeeds = function() {
+          url = '/refresh'
+          $.get(url, function(data, status) {
+              $('#posts_feed').html(data)
+              return false
+          });
+      };
+      setInterval(timely_refreshPostFeeds, 6000);
+
+      $(".votes").click(function() {
+          var id = $(this).attr("id");
+          var name = $(this).attr("name");
+          var parent = $(this)
+          if (name == 'like'){
+              $.get('/vote_up', {id: id}, function() {
+                  parent.html(data);
+              });
+          } else {
+              $.get('/vote_down', {id: id}, function() {
+                  parent.html(data);
+              });
+          }
+          return false;
+      });
+  });
+</script>
