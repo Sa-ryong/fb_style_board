@@ -1,6 +1,6 @@
 namespace :db do
   desc 'Fill database with sample data'
-  take :populate => :environment do
+  task :populate => :environment do
     make_users
     make_posts
     make_relationships
@@ -11,7 +11,7 @@ namespace :db do
     #admin.toggle!(:admin)
     99.times do |n|
       name = Faker::Name.name
-      email = "test-#{n+1}@test.com"
+      email = Faker::Internet.email
       User.create!(name: name, email: email)
     end
   end
@@ -19,8 +19,8 @@ namespace :db do
   def make_posts
     users = User.all(limit: 6)
     50.times do
-      content = Faker::Lorem.sentence 10
-      users.each { |user| user.posts.create!(content: content) }
+      body = Faker::Lorem.paragraph
+      users.each { |user| user.posts.create!(body: body) }
     end
   end
 

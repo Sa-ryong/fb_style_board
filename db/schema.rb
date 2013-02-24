@@ -11,7 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223060647) do
+ActiveRecord::Schema.define(:version => 20130224205705) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "commentable_id",   :default => 0
+    t.string   "commentable_type", :default => "Post"
+    t.integer  "author_id",                            :null => false
+    t.string   "guid",                                 :null => false
+    t.text     "body",                                 :null => false
+    t.integer  "likes_count",      :default => 0
+    t.string   "author_name",                          :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "target_id",                     :null => false
+    t.string   "target_type",                   :null => false
+    t.integer  "author_id",                     :null => false
+    t.string   "guid",                          :null => false
+    t.boolean  "positive",    :default => true
+    t.string   "author_name",                   :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id",                   :null => false

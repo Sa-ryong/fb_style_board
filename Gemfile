@@ -15,7 +15,6 @@ end
 group :test do
   gem 'capybara', '~> 2.0.2'
   gem 'database_cleaner', '~> 0.9.1'
-  gem 'faker', '~> 1.1.2'
 
   gem 'rspec-rails', '~> 2.12.2'
   gem 'factory_girl_rails', '~> 4.2.1'
@@ -46,6 +45,8 @@ group :production do
   # gem 'mysql2'
 end
 
+gem 'faker', '~> 1.1.2'
+
 gem 'bootstrap-sass', '~> 2.2.2.0'
 gem 'bootstrap-will_paginate', '~> 0.0.9'
 gem 'will_paginate', '~> 3.0.4'
@@ -54,6 +55,9 @@ gem 'jquery-rails', '~> 2.2.0'
 gem 'delayed_job_active_record', '~> 0.3.3'
 
 gem 'simple_form', '~> 2.0.4'
+
+# parsing..
+gem 'roxml', '~> 3.3.1'
 
 # gem 'devise', '~> 2.2.3'
 # gem 'omniauth', '~> 1.1.2'

@@ -21,8 +21,8 @@ class PostsController < ApplicationController
 
   def create
     writer = current_user
-    @post = writer.posts.new params[:post]
-    @post.writer = writer.name
+    @post = writer.posts.build params[:post]
+    #@post = writer.posts.new params[:post]
     @post.like = 0
     @post.dislike = 0
 
