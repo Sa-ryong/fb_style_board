@@ -1,14 +1,14 @@
 <% if @posts_streams.empty? %>
-    <h3> no posts yet </h3>
+    <h3> no post yet </h3>
 <% else %>
     <% @posts_streams.each do |post| %>
         <div class="post_body">
           <div class="vote_box">
             <a href="" id="<%= post.id %>" name="like" class="votes">
-              <div class='up'></div> <%= post.like %> 좋아요
+              <div class='up'></div> <%= "#{post.like} #{t :like}" %>
             </a>
             <a href="" id="<%= post.id %>" name="dislike" class="votes">
-              <div class='down'></div> <%= post.dislike %> 싫어요
+              <div class='down'></div> <%= "#{post.dislike} #{t :dislike}" %>
             </a>
           </div>
           <div class="post_img"><img src="assets/default_avatar.png" style='width:50px;height:50px'/></div>
@@ -17,8 +17,11 @@
               <p><%= post.body %></p>
               <small><%= post.writer %></small>
             </blockquote>
-            <div class="post_time">created at <%= post.created_at %></div>
+            <div class="post_time"><%= "#{time_ago_in_words post.created_at} #{t :ago}" %></div>
           </div>
         </div>
     <% end %>
+    <%
+       #TODO will_pagenate @posts_streams
+    %>
 <% end %>

@@ -1,4 +1,4 @@
-class PostController < ApplicationController
+class PostsController < ApplicationController
   def index
     @posts = Post.order('created_at DESC').all
     respond_to do |f|
@@ -13,6 +13,10 @@ class PostController < ApplicationController
       f.html
       f.json { render json: @post }
     end
+  end
+
+  def new
+    @post = current_user.posts.new
   end
 
   def create
@@ -41,10 +45,10 @@ class PostController < ApplicationController
     @post = Post.find params[:id]
     respond_to do |f|
       if @post.update_attributes params[:post]
-        f.html { redirect_to @post, notice: '게시물이 업데이트 되었습니다.'} # 'Post was successfully updated.'
+        f.html { redirect_to @post, notice: t(:post_updated) }
         f.json { head :no_content }
       else
-        f.html { render action: 'edit' }
+        f.html { render :edit }
         f.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
