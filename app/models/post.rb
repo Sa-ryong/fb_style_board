@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :user, :inverse_of => :posts
   has_many :comments, :as => :commentable
 
-  after_initialize do |post|
+  before_save do |post|
     post.writer = post.user.name
   end
 

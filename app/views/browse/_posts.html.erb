@@ -1,20 +1,20 @@
 <% if @posts_streams.empty? %>
     <h3> no post yet </h3>
 <% else %>
-    <ul id="post_stream" class="wList wStream wStreamHomepage translateParent wStreamRedesign wStreamLargeHeadline WIntentionalStream_Content _4kg _4ks" style="min-height: 100px">
+    <ul id="post_stream" class="uiList uiStream uiStreamHomepage translateParent uiStreamRedesign uiStreamLargeHeadline UIIntentionalStream_Content _4kg _4ks" style="min-height: 100px">
       <% @posts_streams.each do |post| %>
           <li class="uiUnifiedStory uiStreamStory genericStreamStory aid_1350692550">
-          <div class="clearfix storyContent">
-            <%= link_to image_tag('default_avatar.png', class: '_s0 profilePic _rw img'), '#', class: 'actorPhoto lfloat' %>
-            <div class="wStoryInnerContent">
-              <div class="mainWrapper">
-                <div role="article">
-                  <h5 class="wStreamMessage wStreamHeadline">
-                    <div class="actorDescription actorName">
-                      <%= link_to post.writer, '#' %>
-                    </div>
-                  </h5>
-                  <h5 class="wStreamMessage userContentWrapper">
+            <div class="clearfix storyContent">
+              <%= link_to image_tag('default_avatar.png', class: '_s0 profilePic _rw img'), '#', class: 'actorPhoto lfloat' %>
+              <div class="storyInnerContent">
+                <div class="mainWrapper">
+                  <div role="article">
+                    <h5 class="uiStreamMessage uiStreamHeadline">
+                      <div class="actorDescription actorName">
+                        <%= link_to post.writer, '#' %>
+                      </div>
+                    </h5>
+                    <h5 class="uiStreamMessage userContentWrapper">
                     <span class="messageBody">
                       <div>
                         <span class="userContent">
@@ -22,28 +22,93 @@
                         </span>
                       </div>
                     </span>
-                  </h5>
-                  <form class="commentable_item autoexpand_mode">
-                    <span class="wStreamFooter">
-                      <span class="WActionLinks WActionLinks_bottom">
+                    </h5>
+                    <form id="form_comment_<%= post.id.to_s %>" class="commentable_item autoexpand_mode">
+                    <span class="uiStreamFooter">
+                      <span class="UIActionLinks UIActionLinks_bottom">
                         <span>
-                          <a href="" id="<%= post.id.to_s %>" name="like" class="WLikeLink" style = "<%= 'font-weight: bold;' if false %>" >
+                          <a href="" id="<%= post.id.to_s %>" name="like" class="UILikeLink" style="<%= 'font-weight: bold;' if false %>">
                             <%= "#{post.like} #{t('like.add')}" %>
                           </a>
                         </span>
                         ·
                         <span>
-                          <a href="" id="<%= post.id.to_s %>" name="dislike" class="WLikeLink" style = "<%= 'font-weight: bold;' if false %>" >
+                          <a href="" id="<%= post.id.to_s %>" name="dislike" class="UILikeLink" style="<%= 'font-weight: bold;' if false %>">
                             <%= "#{post.dislike} #{t('dislike.add')}" %>
                           </a>
                         </span>
+                        ·
+                      </span>
+                      <span class="uiStreamSource">
+                        <abbr class="timestamp livetimestamp" title="<%= post.created_at.to_s %>">
+                          <%= "#{time_ago_in_words post.created_at} #{t :ago}" %>
+                        </abbr>
                       </span>
                     </span>
-                  </form>
+
+                      <div>
+                        <div id="u_ps_jsonp_13_0_g" class="uiUfi UFIContainer utn">
+                          <ul id=".reactRoot[333]" class="UFIList">
+                            <li id=".reactRoot[333].[0]" class="UFIArrow">
+                              <i id=".reactRoot[333].[0].0"></i>
+                            </li>
+                            <!-- like box TODO 내가 like 한 경우 UFIUnseenItem 삭제.. -->
+                            <li id=".reactRoot[333].[1][0]" class="UFIRow UFILikeSentence UFIUnseenItem">
+                              <div id=".reactRoot[333].[1][0].0" class="clearfix">
+                                <div id=".reactRoot[333].[1][0].0.[0]" class="lfloat">
+                                  <i id=".reactRoot[333].[1][0].0.[0].0" class="img _8o _8r UFILikeIcon UFIImageBlockImage"></i>
+                                </div>
+                                <div id=".reactRoot[333].[1][0].0.[1]">
+                                  <div id=".reactRoot[333].[1][0].0.[1].0" class="UFIImageBlockContent _42ef _8u">
+                                    <span id=".reactRoot[333].[1][0].0.[1].0.0">
+                                      <!-- TODO 내가 like 했는지 check -->
+                                        <span id=".reactRoot[333].[1][0].0.[1].0.0.[0]"><%= t :you %> </span>
+                                        <a id=".reactRoot[333].[1][0].0.[1].0.0.[1]" data-tooltip-alignh="center" data-hover="tooltip" href="/browse/likes?id=512357728803198" ajaxify="/ajax/browser/dialog/likes?id=512357728803198" rel="dialog" aria-label="박재범 오영욱 Benjamin Taylor" aria-owns="js_1" aria-controls="js_1" aria-haspopup="true">외
+  3명</a><span id=".reactRoot[333].[1][0].0.[1].0.0.[2]">이 좋아합니다.</span>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <!-- TODO hide this area-->
+                            <li id=".reactRoot[333].[1][3]" class="UFIRow UFIAddComment">
+                              <div class="clearfix UFIMentionsInputWrap">
+                                <div class="lfloat">
+                                  <!-- TODO show my image... -->
+                                  <%= image_tag 'default_avatar.png', class: 'img _8o _8r img UFIActorImage _rx UFIImageBlockImage' %>
+                                </div>
+                                <div id=".reactRoot[333].[1][3].0.[1]">
+                                  <div id=".reactRoot[333].[1][3].0.[1].0" class="UFIImageBlockContent _42ef _8u">
+                                    <div id=".reactRoot[333].[1][3].0.[1].0.0">
+                                      <div id=".reactRoot[333].[1][3].0.[1].0.0.[0]" class="uiMentionsInput textBoxContainer ReactLegacyMentionsInput">
+                                        <div id=".reactRoot[333].[1][3].0.[1].0.0.[0].[0]" class="highlighter">
+                                          <div id=".reactRoot[333].[1][3].0.[1].0.0.[0].[0].0">
+                                            <!--<span id=".reactRoot[333].[1][3].0.[1].0.0.[0].[0].0.0" class="highlighterContent hidden_elem"></span>-->
+                                          </div>
+                                        </div>
+                                        <div id=".reactRoot[333].[1][3].0.[1].0.0.[0].[1]" class="uiTypeahead mentionsTypeahead">
+                                          <div id=".reactRoot[333].[1][3].0.[1].0.0.[0].[1].0" class="wrap">
+                                            <!--<input id=".reactRoot[333].[1][3].0.[1].0.0.[0].[1].0.[0]" class="hiddenInput" type="hidden">-->
+                                            <div id=".reactRoot[333].[1][3].0.[1].0.0.[0].[1].0.[1]" class="innerWrap">
+                                              <textarea id=".reactRoot[333].[1][3].0.[1].0.0.[0].[1].0.[1].0" class="textInput mentionsTextarea uiTextareaAutogrow uiTextareaNoResize UFIAddCommentInput DOMControl_placeholder" placeholder="댓글 달기..." title="댓글 달기..." name="add_comment_text"><%= t 'comment.textarea' %></textarea>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <!--<input id=".reactRoot[333].[1][3].0.[1].0.0.[0].[2]" class="mentionsHidden" type="hidden" value="">-->
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!--
+              <!--
             <div class="vote_box">
               <a href="" id="<%= post.id %>" name="like" class="votes">
                 <div class='up'></div> <%= "#{post.like} #{t :like}" %>
@@ -61,11 +126,11 @@
               <div class="post_time"><%= "#{time_ago_in_words post.created_at} #{t :ago}" %></div>
             </div>
             -->
-          </div>
+            </div>
           </li>
       <% end %>
     </ul>
     <%
-       #TODO will_pagenate @posts_streams
+       #TODO uiill_pagenate @posts_streams
     %>
 <% end %>

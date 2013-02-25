@@ -1,11 +1,14 @@
-#implicitly requires roxml
+require 'roxml'
 
 module Startuplab::Guid
   # Creates a before_create callback which calls #set_guid and makes the guid serialize in to_xml
   def self.included(model)
     model.class_eval do
       before_create :set_guid
-      xml_attr :guid
+
+      #xml_attr :guid
+      attr_accessible :guid
+
       validates :guid, :uniqueness => true
     end
   end

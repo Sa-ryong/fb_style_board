@@ -1,4 +1,5 @@
 
+// General...
 body {
   color: #333333;
   direction: ltr;
@@ -7,13 +8,37 @@ body {
   line-height: 1.28;
   text-align: left;
 }
+label {
+  color: #666666;
+  cursor: pointer;
+  font-weight: bold;
+  vertical-align: middle;
+}
+textarea, .inputtext, .inputpassword {
+  border: 1px solid #BDC7D8;
+  font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+  font-size: 11px;
+  margin: 0;
+  padding: 3px;
+}
+textarea {
+  max-width: 100%;
+}
+img {
+  border: 0 none;
+}
+a {
+  color: #3B5998;
+  cursor: pointer;
+  text-decoration: none;
+}
 
-div#wContentArea {
+div#contentArea {
   padding-left: 18px;
   padding-right: 25px;
   width: 511px;
 }
-#wContentArea {
+#contentArea {
   word-wrap: break-word;
 }
 
@@ -24,15 +49,9 @@ div#wContentArea {
   margin-top: 10px;
 }
 
-//wList wStream wStreamHomepage translateParent wStreamRedesign wStreamLargeHeadline WIntentionalStream_Content _4kg _4ks
-
 element.style {
   opacity: 1;
 }
-.wStreamHomepage .wStreamStory:first-child {
-  margin-top: -6px;
-}
-
 .clearfix {
   &:after {
     clear: both;
@@ -45,13 +64,15 @@ element.style {
   }
 }
 
-.wStreamLargeHeadline .wStreamStory .wStreamHeadline {
+.uiStreamHomepage .uiStreamStory:first-child {
+  margin-top: -6px;
+}
+.uiStreamLargeHeadline .uiStreamStory .uiStreamHeadline {
   font-size: 13px;
   line-height: 1.38;
 }
-
-.wStreamRedesign {
-  .wStreamStory {
+.uiStreamRedesign {
+  .uiStreamStory {
     .actorPhoto {
       margin-bottom: 16px;
       margin-top: 18px;
@@ -61,34 +82,35 @@ element.style {
       padding-top: 18px;
     }
   }
-  .wStreamMessage .messageBody {
+  .uiStreamMessage .messageBody {
     color: #333333;
     font-size: 13px;
     line-height: 1.38;
   }
 }
-
-.wStream {
-  .wStreamHeadline {
+.uiStream {
+  .uiStreamHeadline {
     margin-bottom: 0;
     outline: medium none;
   }
-  .wStreamMessage {
+  .uiStreamMessage {
     color: #000000;
     font-size: 11px;
     font-weight: normal;
     margin: 0 0 5px;
   }
 }
-
 .uiStreamMessage, .uiAttachmentTitle, .uiAttachmentDesc {
   word-wrap: break-word;
 }
-
-.wStreamStory {
+.uiStreamMessage {
+  .actorName, .passiveName {
+    font-weight: bold;
+  }
+}
+.uiStreamStory {
   padding: 0;
   position: static;
-
   .actorPhoto {
     margin-bottom: 14px;
     margin-top: 14px;
@@ -97,34 +119,84 @@ element.style {
     margin: 0 35px 14px 0;
     padding-top: 14px;
   }
-
   .storyContent .storyInnerContent {
     margin-left: 60px;
   }
 }
-
-.WActionLinks_bottom a, .WActionLinks_bottom button.as_link, .WActionLinks_bottom .wLinkButton input, .WActionLinks_bottom .wLinkButton input:hover {
-  color: #6D84B4;
-}
-.WActionLinks_bottom {
-  color: #999999;
-}
-
-html .wStreamFooter {
+html .uiStreamFooter {
   display: table-cell;
 }
-.wStreamFooter {
+.uiStreamFooter {
   width: 10000px;
 }
-.wStreamFooter, .wStreamSource, .wStreamSource a, .wStreamFooter .wStreamSource a, .wStreamAdditionalLogging, .wStreamAdditionalLogging a {
+.uiStreamFooter, .uiStreamSource, .uiStreamSource a, .uiStreamFooter .uiStreamSource a, .uiStreamAdditionalLogging, .uiStreamAdditionalLogging a {
   color: #999999;
 }
-
-.WActionLinks_bottom {
-  color: #999999;
+.uiTextareaAutogrow {
+  overflow: hidden;
+}
+.uiTextareaNoResize {
+  resize: none;
 }
 
-.wLinkButton input {
+.UIActionLinks_bottom a, .UIActionLinks_bottom button.as_link, .UIActionLinks_bottom .uiLinkButton input, .UIActionLinks_bottom .uiLinkButton input:hover {
+  color: #6D84B4;
+}
+.UIActionLinks_bottom {
+  color: #999999;
+}
+// UFI..
+div.UFIContainer {
+  overflow: hidden;
+  padding: 0;
+}
+.UFIContainer {
+  margin: 0;
+  width: 398px;
+}
+.UFIArrow {
+  margin-bottom: -2px;
+  margin-top: 0;
+}
+.UFIArrow > i {
+  background-image: url("https://fbstatic-a.akamaihd.net/rsrc.php/v2/y8/x/UvyvLtJTQzO.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  display: block;
+  height: 5px;
+  margin-left: 17px;
+  width: 9px;
+}
+.UFIUnseenItem {
+  border-left: 2px solid #A8B2CE;
+  padding-left: 2px;
+}
+.UFIRow {
+  background-color: #EDEFF4;
+  margin-top: 1px;
+  padding: 4px;
+}
+i.img {
+}
+.UFILikeIcon {
+  background-image: url("/assets/facebook_tiny.png");
+  background-position: 0 -52px;
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  display: block;
+  height: 13px;
+  width: 15px;
+}
+.UFIMentionsInputWrap {
+  position: relative;
+}
+.UFIAddComment .UFIAddCommentInput {
+  display: block;
+  height: 20px;
+}
+
+.uiLinkButton input {
   background: none repeat scroll 0 0 transparent;
   border: medium none;
   color: #3B5998;
@@ -134,6 +206,82 @@ html .wStreamFooter {
   margin: 0;
   padding: 0;
   vertical-align: top;
+}
+.uiStoryContent {
+  padding-bottom: 2px;
+  position: relative;
+}
+.uiList > li:first-child {
+  border-width: 0;
+}
+.homeWiderContent .uiStreamStory {
+  margin-left: -18px;
+  padding-left: 18px;
+}
+
+.ReactLegacyMentionsInput {
+  background-color: #FFFFFF;
+}
+.uiMentionsInput {
+  position: relative;
+  .highlighter {
+    left: 0;
+    overflow: hidden;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+    div {
+      color: transparent;
+      line-height: 1.28;
+      white-space: pre-wrap;
+      width: 100%;
+      word-wrap: break-word;
+    }
+  }
+  .mentionsTextarea, .mentionsTypeahead {
+    background: none repeat scroll 0 0 transparent;
+  }
+  .mentionsTextarea {
+    line-height: 1.28;
+  }
+}
+
+.uiTypeahead {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border-color: #BDC7D8;
+  border-image: none;
+  border-style: solid;
+  border-width: 1px 0;
+  cursor: default;
+  position: relative;
+  .wrap {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #BDC7D8;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px;
+  }
+  .innerWrap {
+    overflow: hidden;
+  }
+  .textInput {
+    -moz-box-sizing: border-box;
+    background-color: transparent;
+    border: 0 none;
+    outline: 0 none;
+    width: 100%;
+  }
+}
+
+.ff4 .uiMentionsInput .highlighter {
+  padding: 4px 5px;
 }
 
 .lfloat {
@@ -148,37 +296,28 @@ html .wStreamFooter {
   width: 50px;
 }
 
-label {
-  color: #666666;
-  cursor: pointer;
-  font-weight: bold;
-  vertical-align: middle;
+
+abbr {
+  border-bottom: medium none;
 }
 
-img {
-  border: 0 none;
-}
-
-a {
-  color: #3B5998;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.wStoryContent {
-  padding-bottom: 2px;
-  position: relative;
-}
 element.style {
   opacity: 1;
+  direction: ltr;
+  text-align: left;
 }
-.wList > li:first-child {
-  border-width: 0;
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-.homeWiderContent .wStreamStory {
-  margin-left: -18px;
-  padding-left: 18px;
+.DOMControl_placeholder {
+  color: #777777;
 }
+
+///////////////////
+
 ._4ks > li {
   border-color: #E9E9E9;
   border-style: solid;
@@ -186,6 +325,21 @@ element.style {
 ._4kg > li {
   border-width: 1px 0 0;
 }
-ul {
-  list-style-type: none;
+._42ef {
+  overflow: hidden;
+}
+._8u {
+  margin-top: 1px;
+}
+
+._8r {
+  margin-right: 5px;
+  margin-top: -1px;
+}
+._8o, ._8o .img {
+  display: block;
+}
+._rx {
+  height: 32px;
+  width: 32px;
 }

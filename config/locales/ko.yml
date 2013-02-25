@@ -10,6 +10,8 @@ ko:
   comment:
     title: 댓글 남기기
     add: 댓글 달기
+    textarea: 댓글 달기...
+  you: 회원님
 
 # downloaded from https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/ko.yml
   date:
@@ -81,7 +83,8 @@ ko:
         other: ! '%{count}년 이하'
       half_a_minute: 30초
       less_than_x_minutes:
-        one: 일 분 이하
+#        one: 일 분 이하
+        one: 몇 초
         other: ! '%{count}분 이하'
       less_than_x_seconds:
         one: 일 초 이하

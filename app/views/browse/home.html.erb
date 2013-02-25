@@ -1,5 +1,5 @@
 <% if current_user %>
-    <div id="wContentArea">
+    <div id="contentArea">
       <% @post = current_user.posts.new %>
       <%= render 'posts/new' %>
       <div id="posts_feed">
@@ -10,16 +10,16 @@
 
     <script>
         $(document).ready(function () {
-            var timely_refreshPostFeeds = function () {
-                url = '/refresh'
-                $.get(url, function (data, status) {
-                    $('#posts_feed').html(data)
-                    return false
-                });
-            };
-            setInterval(timely_refreshPostFeeds, 60000);
+//            var timely_refreshPostFeeds = function () {
+//                url = '/refresh'
+//                $.get(url, function (data, status) {
+//                    $('#posts_feed').html(data)
+//                    return false
+//                });
+//            };
+//            setInterval(timely_refreshPostFeeds, 60000);
 
-            $(".votes").click(function () {
+            $(".UILikeLink").click(function () {
                 var id = $(this).attr("id");
                 var name = $(this).attr("name");
                 var parent = $(this)
@@ -27,6 +27,9 @@
                     $.get('/vote_up', {id: id}, function (data, status) {
                         parent.html(data);
                     });
+//                    $.get('/likes', {id: id}, function (data, status) {
+//                        (data);
+//                    });
                 } else {
                     $.get('/vote_down', {id: id}, function (data, status) {
                         parent.html(data);
@@ -34,6 +37,20 @@
                 }
                 return false;
             });
+
+            $("textarea").focus(function() {
+                if ($(this).val() === '<%= t 'comment.textarea' %>') $(this).val('');
+            });
+            $("textarea").blur(function() {
+                if ($this.val() === '') $(this).val('<%= t 'comment.textarea' %>');
+            });
+            $("textarea").keydown(function(e){
+                if (e.keyCode == 13 && !e.shiftKey){
+                    e.preventDefault();
+                    alert('ok');
+                }
+            });
+            $("textarea").autosize();
         });
     </script>
 <% end %>
