@@ -1,10 +1,12 @@
-<%= form_for(@post) do |f| %>
-    <div class="fields">
-      <%= f.label :body %>
-      <br/>
-      <%= f.text_field :body %>
-    </div>
-    <div class="actions" id="refresh_posts">
-      <%= f.submit 'Post' %>
-    </div>
-<% end %>
+<div id="wallPageletComposer" data-referrer="wallPageletComposer">
+  <div class="mtm mbl">
+    <%= form_for(@post) do |f| %>
+        <%= f.label :body %>
+        <br/>
+        <%= f.text_field :body %>
+        <div class="actions" id="refresh_posts">
+          <%= f.submit 'Post' %>
+        </div>
+    <% end %>
+  </div>
+</div>

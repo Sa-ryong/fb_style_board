@@ -1,0 +1,191 @@
+
+body {
+  color: #333333;
+  direction: ltr;
+  font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+  font-size: 11px;
+  line-height: 1.28;
+  text-align: left;
+}
+
+div#wContentArea {
+  padding-left: 18px;
+  padding-right: 25px;
+  width: 511px;
+}
+#wContentArea {
+  word-wrap: break-word;
+}
+
+.mbl {
+  margin-bottom: 20px;
+}
+.mtm {
+  margin-top: 10px;
+}
+
+//wList wStream wStreamHomepage translateParent wStreamRedesign wStreamLargeHeadline WIntentionalStream_Content _4kg _4ks
+
+element.style {
+  opacity: 1;
+}
+.wStreamHomepage .wStreamStory:first-child {
+  margin-top: -6px;
+}
+
+.clearfix {
+  &:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+}
+
+.wStreamLargeHeadline .wStreamStory .wStreamHeadline {
+  font-size: 13px;
+  line-height: 1.38;
+}
+
+.wStreamRedesign {
+  .wStreamStory {
+    .actorPhoto {
+      margin-bottom: 16px;
+      margin-top: 18px;
+    }
+    .mainWrapper {
+      margin-bottom: 16px;
+      padding-top: 18px;
+    }
+  }
+  .wStreamMessage .messageBody {
+    color: #333333;
+    font-size: 13px;
+    line-height: 1.38;
+  }
+}
+
+.wStream {
+  .wStreamHeadline {
+    margin-bottom: 0;
+    outline: medium none;
+  }
+  .wStreamMessage {
+    color: #000000;
+    font-size: 11px;
+    font-weight: normal;
+    margin: 0 0 5px;
+  }
+}
+
+.uiStreamMessage, .uiAttachmentTitle, .uiAttachmentDesc {
+  word-wrap: break-word;
+}
+
+.wStreamStory {
+  padding: 0;
+  position: static;
+
+  .actorPhoto {
+    margin-bottom: 14px;
+    margin-top: 14px;
+  }
+  .mainWrapper {
+    margin: 0 35px 14px 0;
+    padding-top: 14px;
+  }
+
+  .storyContent .storyInnerContent {
+    margin-left: 60px;
+  }
+}
+
+.WActionLinks_bottom a, .WActionLinks_bottom button.as_link, .WActionLinks_bottom .wLinkButton input, .WActionLinks_bottom .wLinkButton input:hover {
+  color: #6D84B4;
+}
+.WActionLinks_bottom {
+  color: #999999;
+}
+
+html .wStreamFooter {
+  display: table-cell;
+}
+.wStreamFooter {
+  width: 10000px;
+}
+.wStreamFooter, .wStreamSource, .wStreamSource a, .wStreamFooter .wStreamSource a, .wStreamAdditionalLogging, .wStreamAdditionalLogging a {
+  color: #999999;
+}
+
+.WActionLinks_bottom {
+  color: #999999;
+}
+
+.wLinkButton input {
+  background: none repeat scroll 0 0 transparent;
+  border: medium none;
+  color: #3B5998;
+  cursor: pointer;
+  font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+.lfloat {
+  float: left;
+}
+
+._s0:only-child {
+  display: block;
+}
+._rw {
+  height: 50px;
+  width: 50px;
+}
+
+label {
+  color: #666666;
+  cursor: pointer;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+img {
+  border: 0 none;
+}
+
+a {
+  color: #3B5998;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.wStoryContent {
+  padding-bottom: 2px;
+  position: relative;
+}
+element.style {
+  opacity: 1;
+}
+.wList > li:first-child {
+  border-width: 0;
+}
+.homeWiderContent .wStreamStory {
+  margin-left: -18px;
+  padding-left: 18px;
+}
+._4ks > li {
+  border-color: #E9E9E9;
+  border-style: solid;
+}
+._4kg > li {
+  border-width: 1px 0 0;
+}
+ul {
+  list-style-type: none;
+}

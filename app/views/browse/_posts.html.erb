@@ -1,26 +1,70 @@
 <% if @posts_streams.empty? %>
     <h3> no post yet </h3>
 <% else %>
-    <% @posts_streams.each do |post| %>
-        <div class="post_body">
-          <div class="vote_box">
-            <a href="" id="<%= post.id %>" name="like" class="votes">
-              <div class='up'></div> <%= "#{post.like} #{t :like}" %>
-            </a>
-            <a href="" id="<%= post.id %>" name="dislike" class="votes">
-              <div class='down'></div> <%= "#{post.dislike} #{t :dislike}" %>
-            </a>
+    <ul id="post_stream" class="wList wStream wStreamHomepage translateParent wStreamRedesign wStreamLargeHeadline WIntentionalStream_Content _4kg _4ks" style="min-height: 100px">
+      <% @posts_streams.each do |post| %>
+          <li class="uiUnifiedStory uiStreamStory genericStreamStory aid_1350692550">
+          <div class="clearfix storyContent">
+            <%= link_to image_tag('default_avatar.png', class: '_s0 profilePic _rw img'), '#', class: 'actorPhoto lfloat' %>
+            <div class="wStoryInnerContent">
+              <div class="mainWrapper">
+                <div role="article">
+                  <h5 class="wStreamMessage wStreamHeadline">
+                    <div class="actorDescription actorName">
+                      <%= link_to post.writer, '#' %>
+                    </div>
+                  </h5>
+                  <h5 class="wStreamMessage userContentWrapper">
+                    <span class="messageBody">
+                      <div>
+                        <span class="userContent">
+                          <%= post.body %>
+                        </span>
+                      </div>
+                    </span>
+                  </h5>
+                  <form class="commentable_item autoexpand_mode">
+                    <span class="wStreamFooter">
+                      <span class="WActionLinks WActionLinks_bottom">
+                        <span>
+                          <a href="" id="<%= post.id.to_s %>" name="like" class="WLikeLink" style = "<%= 'font-weight: bold;' if false %>" >
+                            <%= "#{post.like} #{t('like.add')}" %>
+                          </a>
+                        </span>
+                        ·
+                        <span>
+                          <a href="" id="<%= post.id.to_s %>" name="dislike" class="WLikeLink" style = "<%= 'font-weight: bold;' if false %>" >
+                            <%= "#{post.dislike} #{t('dislike.add')}" %>
+                          </a>
+                        </span>
+                      </span>
+                    </span>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--
+            <div class="vote_box">
+              <a href="" id="<%= post.id %>" name="like" class="votes">
+                <div class='up'></div> <%= "#{post.like} #{t :like}" %>
+              </a>
+              <a href="" id="<%= post.id %>" name="dislike" class="votes">
+                <div class='down'></div> <%= "#{post.dislike} #{t :dislike}" %>
+              </a>
+            </div>
+            <div class="post_img"><img src="assets/default_avatar.png" style='width:50px;height:50px'/></div>
+            <div class="post_text">
+              <blockquote>
+                <p><%= post.body %></p>
+                <small><%= post.writer %></small>
+              </blockquote>
+              <div class="post_time"><%= "#{time_ago_in_words post.created_at} #{t :ago}" %></div>
+            </div>
+            -->
           </div>
-          <div class="post_img"><img src="assets/default_avatar.png" style='width:50px;height:50px'/></div>
-          <div class="post_text">
-            <blockquote>
-              <p><%= post.body %></p>
-              <small><%= post.writer %></small>
-            </blockquote>
-            <div class="post_time"><%= "#{time_ago_in_words post.created_at} #{t :ago}" %></div>
-          </div>
-        </div>
-    <% end %>
+          </li>
+      <% end %>
+    </ul>
     <%
        #TODO will_pagenate @posts_streams
     %>

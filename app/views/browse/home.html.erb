@@ -1,35 +1,39 @@
 <% if current_user %>
-    <% @post = current_user.posts.new %>
-    <%= render 'posts/new' %>
-    <div id="posts_feed">
-      <%= render 'posts', locals: {posts_streams: @posts_streams} %>
-    </div><br/>
-<% end %>
-<script>
-  $(document).ready(function() {
-      var timely_refreshPostFeeds = function() {
-          url = '/refresh'
-          $.get(url, function(data, status) {
-              $('#posts_feed').html(data)
-              return false
-          });
-      };
-      setInterval(timely_refreshPostFeeds, 60000);
+    <div id="wContentArea">
+      <% @post = current_user.posts.new %>
+      <%= render 'posts/new' %>
+      <div id="posts_feed">
+        <%= render 'posts', locals: {posts_streams: @posts_streams} %>
+      </div>
+      <br/>
+    </div>
 
-      $(".votes").click(function() {
-          var id = $(this).attr("id");
-          var name = $(this).attr("name");
-          var parent = $(this)
-          if (name == 'like'){
-              $.get('/vote_up', {id: id}, function(data, status) {
-                  parent.html(data);
-              });
-          } else {
-              $.get('/vote_down', {id: id}, function(data, status) {
-                  parent.html(data);
-              });
-          }
-          return false;
-      });
-  });
-</script>
+    <script>
+        $(document).ready(function () {
+            var timely_refreshPostFeeds = function () {
+                url = '/refresh'
+                $.get(url, function (data, status) {
+                    $('#posts_feed').html(data)
+                    return false
+                });
+            };
+            setInterval(timely_refreshPostFeeds, 60000);
+
+            $(".votes").click(function () {
+                var id = $(this).attr("id");
+                var name = $(this).attr("name");
+                var parent = $(this)
+                if (name == 'like') {
+                    $.get('/vote_up', {id: id}, function (data, status) {
+                        parent.html(data);
+                    });
+                } else {
+                    $.get('/vote_down', {id: id}, function (data, status) {
+                        parent.html(data);
+                    });
+                }
+                return false;
+            });
+        });
+    </script>
+<% end %>

@@ -3,7 +3,13 @@
 
 en:
   ago: ago
-  like: like
-  dislike: dislike
-  unlike: unlike
+  like:
+    add: Like
+    cancle: Unlike
+  dislike:
+    add: Dislike
+    cancle: Cacle dislike
   post_updated: Post was successfully updated.
+  comment:
+    title: Comment
+    add: Comment

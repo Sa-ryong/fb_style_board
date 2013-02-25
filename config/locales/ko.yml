@@ -1,9 +1,15 @@
 ko:
   ago: 전
-  like: 좋아요
-  dislike: 싫어요
-  unlike: 좋아요 취소
+  like:
+    add: 좋아요
+    cancle: 좋아요 취소
+  dislike:
+    add: 싫어요
+    cancle: 싫어요 취소
   post_updated: 게시물이 업데이트 되었습니다.
+  comment:
+    title: 댓글 남기기
+    add: 댓글 달기
 
 # downloaded from https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/ko.yml
   date:
