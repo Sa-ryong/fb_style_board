@@ -37,12 +37,8 @@ group :development do
   gem 'magic_encoding', '>= 0.0.2'
 end
 
-group :staging do
-  # gem 'pg'
-end
-
-group :production do
-  # gem 'mysql2'
+group :staging, :production do
+   gem 'pg'
 end
 
 gem 'faker', '~> 1.1.2'
